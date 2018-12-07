@@ -1,0 +1,24 @@
+<h1>{{pageTitle}}</h1> <!--interpolation{{}}-->
+<div>
+  <img [src] ="imgUrl" alt="img"> <!--property binding[]-->
+</div>
+
+<div>
+  <button (click)="incrementCount()">Click</button> <!--Event binding()-->
+  <p>Clicked {{ count }} times</p>
+</div>
+
+<div>
+  <input #nameRef type="text" [(ngModel)]="name"><!--two-way-binding[()]-->
+  <p>Welcome {{ name }}  </p>
+</div> 
+ 
+<div>
+  <input type="text" [ngModel]="userName" (ngModelChange)="greetHakkim($event)"><!--splitting the two way binding--> 
+  <p>Welcome {{ userName }}  </p>
+</div> 
+
+<div>
+  <input type="text" [(ngModel)]="customerName ">
+    <p>Welcome {{ customerName  }}  </p>
+</div> 
