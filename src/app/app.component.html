@@ -11,14 +11,16 @@
 <div>
   <input #nameRef type="text" [(ngModel)]="name"><!--two-way-binding[()]-->
   <p>Welcome {{ name }}  </p>
-</div> 
- 
+</div>
+
 <div>
-  <input type="text" [ngModel]="userName" (ngModelChange)="greetHakkim($event)"><!--splitting the two way binding--> 
+  <input type="text" [ngModel]="userName" (ngModelChange)="greetHakkim($event)"><!--splitting the two way binding-->
   <p>Welcome {{ userName }}  </p>
-</div> 
+</div>
 
 <div>
   <input type="text" [(ngModel)]="customerName ">
     <p>Welcome {{ customerName  }}  </p>
-</div> 
+</div>
+
+<app-new-cmp></app-new-cmp>
