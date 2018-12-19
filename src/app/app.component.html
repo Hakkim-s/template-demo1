@@ -1,26 +1,39 @@
 <h1>{{pageTitle}}</h1> <!--interpolation{{}}-->
 <div>
-  <img [src] ="imgUrl" alt="img"> <!--property binding[]-->
+  <img [src] ='imgUrl' alt='img'> <!--property binding[]  com to tem   -->
 </div>
 
 <div>
-  <button (click)="incrementCount()">Click</button> <!--Event binding()-->
+  <button (click)='incrementCount()'>Click</button> <!--Event binding() tem to com -->
   <p>Clicked {{ count }} times</p>
 </div>
 
 <div>
-  <input #nameRef type="text" [(ngModel)]="name"><!--two-way-binding[()]-->
+  <input #nameRef type='text' [(ngModel)]='name'><!--two-way-binding[()]-->
   <p>Welcome {{ name }}  </p>
 </div>
 
 <div>
-  <input type="text" [ngModel]="userName" (ngModelChange)="greetHakkim($event)"><!--splitting the two way binding-->
+  <input type='text' [ngModel]='userName' (ngModelChange)='greetHakkim($event)'><!--splitting the two way binding-->
   <p>Welcome {{ userName }}  </p>
 </div>
 
 <div>
-  <input type="text" [(ngModel)]="customerName ">
+  <input type='text' [(ngModel)]='customerName '>
     <p>Welcome {{ customerName  }}  </p>
 </div>
 
-<app-new-cmp></app-new-cmp>
+
+<h1 style=color:blueviolet >{{todaydate}}</h1>
+
+
+<!-- <app-new-cmp-fff></app-new-cmp-fff> -->
+<br />
+<br />
+<br />
+<a routerLink = "new-cmp-fff">New component</a>
+<!-- <app-new-gone></app-new-gone> -->
+<br />
+<br /><router-outlet></router-outlet>
+<a routerLink = "new-gone">New gone</a>
+
