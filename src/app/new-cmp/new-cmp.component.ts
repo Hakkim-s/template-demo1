@@ -15,4 +15,9 @@ export class NewCmpComponent implements OnInit {
    ngOnInit() {
       this.todaydate = this.myservice.showTodayDate();
    }
-}
+
+clickMethod(name: string) {
+  if ( confirm('Are you sure to delete ' + name)) {
+    console.log('Implement delete functionality here');
+  }
+}}
