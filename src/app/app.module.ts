@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { NewCmpComponent } from './new-cmp/new-cmp.component';
 import { NewGoneComponent } from './new-gone/new-gone.component';
 import {MyserviceService} from './myservice.service';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -16,6 +19,8 @@ import {MyserviceService} from './myservice.service';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'new-cmp-fff',
          component: NewCmpComponent},

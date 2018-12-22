@@ -11,6 +11,8 @@
 
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { MyserviceService } from './myservice.service';
+import { Http } from '@angular/http';
+import { map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -25,14 +27,31 @@ export class AppComponent implements AfterViewInit {
   userName: string;
   private _customerName: string;
 
-  constructor(private myservice: MyserviceService) {}
+  constructor(private myservice: MyserviceService,
+              private http: Http ) {}
   todaydate;
+  componentproperty;
+  httpdata;
+  searchparam = 2;
 
   @ViewChild('nameRef') nameElementRef: ElementRef; // sngafterview
 
   ngOnInit() {
     this.todaydate = this.myservice.showTodayDate();
- }
+    console.log(this.myservice.serviceproperty);
+    this.myservice.serviceproperty = 'component created'; // value is changed.
+    this.componentproperty = this.myservice.serviceproperty;
+
+
+    this.http.get("http://jsonplaceholder.typicode.com/users?id="+this.searchparam)
+      .pipe(map((response) => response.json()))
+      .subscribe((data) => this.displaydata(data));
+
+   }
+
+   displaydata(data) {this.httpdata = data;}
+
+
   ngAfterViewInit() {
     this.nameElementRef.nativeElement.focus();
     console.log(this.nameElementRef);

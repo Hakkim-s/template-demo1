@@ -9,11 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class NewCmpComponent implements OnInit {
   newcomponent = 'Entered in new component created';
   todaydate;
-
+  newcomponentproperty;
 
   constructor(private myservice: MyserviceService) {}
    ngOnInit() {
       this.todaydate = this.myservice.showTodayDate();
+      this.newcomponentproperty = this.myservice.serviceproperty;
+
    }
 
 clickMethod(name: string) {
