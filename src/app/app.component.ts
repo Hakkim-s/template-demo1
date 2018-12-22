@@ -42,14 +42,12 @@ export class AppComponent implements AfterViewInit {
     this.myservice.serviceproperty = 'component created'; // value is changed.
     this.componentproperty = this.myservice.serviceproperty;
 
-
-    this.http.get("http://jsonplaceholder.typicode.com/users?id="+this.searchparam)
+       this.http.get("http://jsonplaceholder.typicode.com/users?id=" + this.searchparam)
       .pipe(map((response) => response.json()))
       .subscribe((data) => this.displaydata(data));
 
    }
-
-   displaydata(data) {this.httpdata = data;}
+  displaydata(data) {this.httpdata = data;}
 
 
   ngAfterViewInit() {
