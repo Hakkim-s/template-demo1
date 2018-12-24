@@ -8,6 +8,7 @@ import { NewGoneComponent } from './new-gone/new-gone.component';
 import {MyserviceService} from './myservice.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: 'new-cmp-fff',
          component: NewCmpComponent},

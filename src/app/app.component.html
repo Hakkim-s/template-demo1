@@ -26,6 +26,13 @@
 
 <h1 style=color:blueviolet >{{todaydate}}</h1>
 
+<!--animation-->
+<div>
+  <button (click) = "animate()">Click Me</button>
+  <div [@myanimation] = "state" class = "rotate">
+     <img src = "assets/img.png" width = "100" height = "100">
+  </div>
+</div>
 
 <!-- <app-new-cmp-fff></app-new-cmp-fff> -->
 <br />

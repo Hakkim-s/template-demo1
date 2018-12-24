@@ -13,12 +13,39 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { MyserviceService } from './myservice.service';
 import { Http } from '@angular/http';
 import { map} from 'rxjs/operators';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  styles:[`
+  div{
+     margin: 0 auto;
+     text-align: center;
+     width:200px;
+  }
+  .rotate{
+     width:100px;
+     height:100px;
+     border:solid 1px red;
+  }
+`],
+animations: [
+  trigger('myanimation',[
+     state('smaller',style({
+        transform : 'translateY(100px)'
+     })),
+     state('larger',style({
+        transform : 'translateY(0px)'
+     })),
+     transition('smaller <=> larger',animate('300ms ease-in'))
+  ])
+]
 })
+
+
+
 export class AppComponent implements AfterViewInit {
   pageTitle = ' Angular component template'; // interpolation{{}}
   imgUrl = 'https://picsum.photos/225'; // property binding[]
@@ -26,6 +53,14 @@ export class AppComponent implements AfterViewInit {
   name: string; // two-way-binding[()]
   userName: string;
   private _customerName: string;
+
+
+  //animation
+    state: string = "smaller";
+    animate() {
+       this.state = this.state == 'larger' ? 'smaller' : 'larger';
+    }
+
 
   constructor(private myservice: MyserviceService,
               private http: Http ) {}
